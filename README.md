@@ -44,3 +44,6 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 >>>>>>> 17edf0e (Primeiro commit: Projeto To-Do List com React e Vite)
+
+![React](https://img.shields.io/badge/react-v18.2.0-blue)
+![Vite](https://img.shields.io/badge/vite-4.3.9-yellow)
