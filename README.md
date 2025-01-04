@@ -34,6 +34,18 @@ Certifique-se de ter o **Node.js** e o **npm** instalados no seu computador.
    ```bash
    git clone https://github.com/Ginnill/todo-list.git
    cd todo-list
+
+2. Instale as dependências necessárias:
+   ```bash
+   npm install
+
+3. Inicialize a aplicação:
+   ```bash
+   npm run dev
+
+4. Abra o navegador e acesse:
+   ```bash
+   http://localhost:5173/
 =======
 # React + Vite
 
