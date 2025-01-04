@@ -32,8 +32,8 @@ Certifique-se de ter o **Node.js** e o **npm** instalados no seu computador.
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/seuusuario/nome-do-repositorio.git
-   cd nome-do-repositorio
+   git clone https://github.com/Ginnill/todo-list.git
+   cd todo-list
 =======
 # React + Vite
 
