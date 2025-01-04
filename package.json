@@ -1,0 +1,41 @@
+{
+  "name": "todo-list",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Aplicação To-Do List desenvolvida com React e Vite.",
+  "type": "module",
+  "homepage": "https://Ginnill.github.io/todo-list/",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "keywords": [
+    "todo-list",
+    "react",
+    "vite",
+    "gerenciamento-de-tarefas"
+  ],
+  "author": "Seu Nome <seuemail@example.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "gh-pages": "^5.0.0",
+    "globals": "^15.14.0",
+    "vite": "^6.0.5"
+  }
+}

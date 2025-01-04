@@ -1,0 +1,168 @@
+/* Estilos gerais */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.app-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Formulário */
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Adicionado para dispositivos menores */
+}
+
+.task-input,
+.task-select,
+.task-button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.task-input,
+.task-select {
+  flex: 1; /* Para os inputs se adaptarem em dispositivos menores */
+  min-width: 120px; /* Largura mínima para inputs */
+}
+
+.task-button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  min-width: 100px; /* Largura mínima para botões */
+}
+
+.task-button:hover {
+  background-color: #0056b3;
+}
+
+/* Tabelas */
+.task-tables {
+  margin-top: 20px;
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.task-table th,
+.task-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.task-table th {
+  background-color: #f4f4f4;
+  text-align: left;
+}
+
+.task-row {
+  background-color: white;
+}
+
+.priority-Alta {
+  background-color: lightcoral;
+}
+
+.priority-Média {
+  background-color: lightyellow;
+}
+
+.priority-Baixa {
+  background-color: white;
+}
+
+.created-at-row {
+  background-color: #f4f4f4;
+  text-align: left;
+  padding: 10px;
+  font-size: 0.9em;
+  font-style: italic;
+  width: 100%;
+}
+
+/* Botões dentro do td */
+td .task-edit-button,
+td .task-remove-button,
+td .task-button {
+  margin-right: 5px; /* Gap de 5px entre botões */
+}
+
+/* Responsividade para dispositivos menores */
+
+/* Para dispositivos móveis (máx. 640px) */
+@media (max-width: 640px) {
+  .app-container {
+    padding: 15px;
+  }
+
+  .task-form {
+    flex-direction: column;
+    gap: 15px; /* Mais espaçamento entre os inputs no mobile */
+  }
+
+  .task-input,
+  .task-select,
+  .task-button {
+    width: 100%; /* Inputs e botões ocupam 100% da largura no mobile */
+  }
+
+  .task-tables {
+    overflow-x: auto; /* Habilita rolagem horizontal no mobile */
+  }
+
+  .task-table th,
+  .task-table td {
+    font-size: 0.8em; /* Reduz o tamanho do texto no mobile */
+  }
+
+  .task-button {
+    padding: 8px; /* Ajusta o tamanho do botão para telas menores */
+  }
+}
+
+/* Para dispositivos desktop pequenos (máx. 960px) */
+@media (max-width: 960px) {
+  .app-container {
+    max-width: 100%; /* Ajusta o container para ocupar toda a largura */
+    padding: 20px;
+  }
+
+  .task-form {
+    gap: 10px; /* Mantém o espaçamento padrão para inputs no desktop */
+  }
+
+  .task-input,
+  .task-select,
+  .task-button {
+    padding: 8px; /* Inputs e botões levemente menores no desktop pequeno */
+  }
+
+  .task-tables {
+    overflow-x: auto; /* Habilita rolagem horizontal no desktop pequeno */ 
+  }
+
+  .task-table th,
+  .task-table td {
+    font-size: 0.9em; /* Texto levemente reduzido */
+  }
+}
