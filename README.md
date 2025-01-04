@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # To-Do List com React
 
 Este é um projeto de **To-Do List** desenvolvido com **React** que permite gerenciar tarefas de maneira intuitiva. O sistema inclui funcionalidades como adicionar, editar, excluir e organizar tarefas com categorias, prioridades e datas de entrega.
