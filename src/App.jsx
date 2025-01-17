@@ -13,7 +13,18 @@ function App() {
   const [status, setStatus] = useState("Aguardando");
 
   const addTask = () => {
-    if (newTask.trim()) {
+    if (!newTask || !dueDate) {
+      const message =
+        !newTask && !dueDate
+          ? "Preencha o 'nome' e o 'prazo' da tarefa!"
+          : !newTask
+          ? "Preencha o 'nome' da tarefa!"
+          : "Preencha a 'data de prazo' da tarefa!";
+
+      window.confirm(message);
+    }
+
+    if (newTask.trim() && dueDate.trim()) {
       const newTaskObject = {
         name: newTask.trim(),
         category,
@@ -40,7 +51,9 @@ function App() {
     setEditingTaskIndex(index);
     setCategory(taskToEdit.category);
     setPriority(taskToEdit.priority);
-    setDueDate(taskToEdit.dueDate === "Não especificada" ? "" : taskToEdit.dueDate);
+    setDueDate(
+      taskToEdit.dueDate === "Não especificada" ? "" : taskToEdit.dueDate
+    );
     setStatus(taskToEdit.status);
   };
 
@@ -59,7 +72,9 @@ function App() {
   };
 
   const removeTask = (index) => {
-    const confirmRemove = window.confirm("Tem certeza que deseja remover esta tarefa?");
+    const confirmRemove = window.confirm(
+      "Tem certeza que deseja remover esta tarefa?"
+    );
     if (confirmRemove) {
       const updatedTasks = tasks.filter((_, i) => i !== index);
       setTasks(updatedTasks);
@@ -69,49 +84,82 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1 className="app-title">To-Do List</h1>
-
+      <h1 className="app-title">Lista de tarefas</h1>
+      <p className="app-description">
+        Crie a sua lista de tarefas preenchendo os campos abaixo
+      </p>
       <div className="task-form">
-        <input
-          type="text"
-          placeholder="Nova Tarefa"
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-          className="task-input"
-        />
+        <div className="form-box">
+          <label htmlFor="name" className="label">
+            Nome
+          </label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Nova Tarefa"
+            required
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
+            className="task-input"
+          />
+        </div>
 
-        <select
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          className="task-select"
-        >
-          <option>Planejamento</option>
-          <option>Design</option>
-          <option>Desenvolvimento</option>
-          <option>Revisão</option>
-          <option>Entregue</option>
-        </select>
+        <div className="form-box">
+          <label htmlFor="status" className="label">
+            Categoria
+          </label>
+          <select
+            value={category}
+            name="status"
+            required
+            onChange={(e) => setCategory(e.target.value)}
+            className="task-select"
+          >
+            <option>Auditoria</option>
+            <option>Criação de site</option>
+            <option>Design Gráfico</option>
+            <option>Redação</option>
+            <option>SEO</option>
+            <option>Tráfego Pago</option>
+          </select>
+        </div>
 
-        <select
-          value={priority}
-          onChange={(e) => setPriority(e.target.value)}
-          className="task-select"
-        >
-          <option>Baixa</option>
-          <option>Média</option>
-          <option>Alta</option>
-        </select>
+        <div className="form-box">
+          <label htmlFor="prioridade" className="label">
+            Prioridade
+          </label>
+          <select
+            value={priority}
+            name="prioridade"
+            required
+            onChange={(e) => setPriority(e.target.value)}
+            className="task-select"
+          >
+            <option>Baixa</option>
+            <option>Média</option>
+            <option>Alta</option>
+          </select>
+        </div>
 
-        <input
-          type="date"
-          value={dueDate}
-          onChange={(e) => setDueDate(e.target.value)}
-          className="task-input"
-        />
+        <div className="form-box">
+          <label htmlFor="date" className="label">
+            Prazo
+          </label>
+          <input
+            type="date"
+            name="date"
+            value={dueDate}
+            required
+            onChange={(e) => setDueDate(e.target.value)}
+            className="task-input"
+          />
+        </div>
 
-        <button onClick={addTask} className="task-button">
-          Adicionar
-        </button>
+        <div className="form-box button">
+          <button onClick={addTask} className="task-button">
+            Adicionar
+          </button>
+        </div>
       </div>
 
       <div className="task-tables">
@@ -127,7 +175,9 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              <tr className={`task-row priority-${task.priority}`}>
+              <tr
+                className={`task-row priority-${task.priority} status-${task.status}`}
+              >
                 <td>{task.name}</td>
                 <td>
                   {editingTaskIndex === index ? (
@@ -136,11 +186,12 @@ function App() {
                       onChange={(e) => setCategory(e.target.value)}
                       className="task-select"
                     >
-                      <option>Planejamento</option>
-                      <option>Design</option>
-                      <option>Desenvolvimento</option>
-                      <option>Revisão</option>
-                      <option>Entregue</option>
+                      <option>Auditoria</option>
+                      <option>Criação de site</option>
+                      <option>Design Gráfico</option>
+                      <option>Redação</option>
+                      <option>SEO</option>
+                      <option>Tráfego Pago</option>
                     </select>
                   ) : (
                     task.category

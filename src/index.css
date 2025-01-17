@@ -3,7 +3,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
+  background-color: #2c2c2c;
 }
 
 .app-container {
@@ -20,12 +20,31 @@ body {
   margin-bottom: 20px;
 }
 
+.app-description{
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
 /* Formulário */
 .task-form {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
   flex-wrap: wrap; /* Adicionado para dispositivos menores */
+}
+
+.form-box .label{
+  display: block;
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 5px;
+}
+
+.form-box.button {
+  display: flex;
+  align-items: flex-end;
 }
 
 .task-input,
@@ -42,14 +61,45 @@ body {
   min-width: 120px; /* Largura mínima para inputs */
 }
 
-.task-button {
+.task-form .task-button {
   background-color: #007bff;
   color: white;
   cursor: pointer;
   min-width: 100px; /* Largura mínima para botões */
 }
 
-.task-button:hover {
+.task-form .task-button:hover {
+  background-color: #0056b3;
+}
+
+.task-table .task-remove-button,
+.task-table .task-edit-button,
+.task-table .task-select,
+.task-table .task-button {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.task-table .task-button, .task-table .task-edit-button {
+  background-color: #6fb5ff;
+  color: white;
+  cursor: pointer;
+  min-width: 100px; /* Largura mínima para botões */
+}
+
+.task-table .task-remove-button {
+  background-color: tomato;
+  color: white;
+  cursor: pointer;
+  min-width: 100px; /* Largura mínima para botões */
+}
+
+.task-table .task-remove-button:hover {
+  background-color: crimson;
+}
+
+.task-table .task-button:hover, .task-table .task-edit-button:hover {
   background-color: #0056b3;
 }
 
@@ -89,6 +139,10 @@ body {
 
 .priority-Baixa {
   background-color: white;
+}
+
+.status-Finalizado{
+  background-color: #a6d0a6;
 }
 
 .created-at-row {
