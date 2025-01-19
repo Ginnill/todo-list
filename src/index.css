@@ -21,7 +21,7 @@ body {
   margin-bottom: 20px;
 }
 
-.app-description{
+.app-description {
   text-align: center;
   border-bottom: 1px solid lightgray;
   margin-bottom: 30px;
@@ -82,13 +82,13 @@ body {
   background-color: #f1f1f1;
 }
 
-.accordion-task-name{
+.accordion-task-name {
   display: flex;
   gap: 10px;
   align-items: center;
 }
 
-.due-date{
+.due-date {
   display: inline-block;
   font-size: 12px;
   color: gray;
@@ -97,22 +97,22 @@ body {
   padding-right: 5px;
 }
 
-.square{
+.square {
   width: 10px;
   height: 10px;
   display: inline-block;
   border-radius: 50%;
 }
 
-.square.Baixa{
+.square.Baixa {
   background-color: lightgray;
 }
 
-.square.Média{
+.square.Média {
   background-color: orange;
 }
 
-.square.Alta{
+.square.Alta {
   background-color: red;
 }
 
@@ -144,7 +144,7 @@ body {
 
 /* Responsividade */
 @media (max-width: 640px) {
-  .app-container{
+  .app-container {
     border-radius: 0;
     margin-top: 0;
   }
@@ -253,6 +253,19 @@ body {
   background-color: crimson;
 }
 
+/* Responsividade */
+@media (max-width: 640px) {
+  .popup-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .task-button,
+  .task-remove-button {
+    flex-basis: calc(50% - 15px);
+  }
+}
+
 /* Outros ajustes */
 .icon-button {
   font-size: 1em;
@@ -262,17 +275,17 @@ body {
   transition: color 0.3s;
 }
 
-.icon-check{
+.icon-check {
   color: rgb(8, 179, 8);
-  font-size: 1rem;;
+  font-size: 1rem;
 }
 
 .icon-button:hover {
   color: #333;
 }
 
-.toggle-chevron-button{
-  font-size: .8em;
+.toggle-chevron-button {
+  font-size: 0.8em;
   cursor: pointer;
   color: #666;
   transition: color 0.3s;
