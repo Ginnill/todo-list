@@ -3,16 +3,17 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #2c2c2c;
+  background-color: #f0f0f0;
+  box-sizing: border-box;
 }
 
 .app-container {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .app-title {
@@ -21,30 +22,17 @@ body {
 }
 
 .app-description{
+  text-align: center;
+  border-bottom: 1px solid lightgray;
   margin-bottom: 30px;
   padding-bottom: 30px;
-  text-align: center;
-  border-bottom: 1px solid #ccc;
 }
 
-/* Formulário */
 .task-form {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 20px;
-  flex-wrap: wrap; /* Adicionado para dispositivos menores */
-}
-
-.form-box .label{
-  display: block;
-  font-size: 14px;
-  color: gray;
-  margin-bottom: 5px;
-}
-
-.form-box.button {
-  display: flex;
-  align-items: flex-end;
 }
 
 .task-input,
@@ -53,170 +41,240 @@ body {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  flex-grow: 1;
+  flex-basis: 100px;
 }
 
-.task-input,
-.task-select {
-  flex: 1; /* Para os inputs se adaptarem em dispositivos menores */
-  min-width: 120px; /* Largura mínima para inputs */
-}
-
-.task-form .task-button {
+.task-button {
   background-color: #007bff;
   color: white;
   cursor: pointer;
-  min-width: 100px; /* Largura mínima para botões */
+  transition: background-color 0.3s;
 }
 
-.task-form .task-button:hover {
+.task-button:hover {
   background-color: #0056b3;
 }
 
-.task-table .task-remove-button,
-.task-table .task-edit-button,
-.task-table .task-select,
-.task-table .task-button {
-  padding: 5px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-.task-table .task-button, .task-table .task-edit-button {
-  background-color: #6fb5ff;
-  color: white;
-  cursor: pointer;
-  min-width: 100px; /* Largura mínima para botões */
-}
-
-.task-table .task-remove-button {
-  background-color: tomato;
-  color: white;
-  cursor: pointer;
-  min-width: 100px; /* Largura mínima para botões */
-}
-
-.task-table .task-remove-button:hover {
-  background-color: crimson;
-}
-
-.task-table .task-button:hover, .task-table .task-edit-button:hover {
-  background-color: #0056b3;
-}
-
-/* Tabelas */
-.task-tables {
+.accordion {
   margin-top: 20px;
 }
 
-.task-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
+.accordion-item {
+  background: #ffffff;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-.task-table th,
-.task-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
 }
 
-.task-table th {
-  background-color: #f4f4f4;
-  text-align: left;
+.accordion-header:hover {
+  background-color: #f1f1f1;
 }
 
-.task-row {
-  background-color: white;
+.accordion-task-name{
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.priority-Alta {
-  background-color: lightcoral;
-}
-
-.priority-Média {
-  background-color: lightyellow;
-}
-
-.priority-Baixa {
-  background-color: white;
-}
-
-.status-Finalizado{
-  background-color: #a6d0a6;
-}
-
-.created-at-row {
-  background-color: #f4f4f4;
-  text-align: left;
-  padding: 10px;
-  font-size: 0.9em;
+.due-date{
+  display: inline-block;
+  font-size: 12px;
+  color: gray;
   font-style: italic;
-  width: 100%;
+  border-right: 1px solid gray;
+  padding-right: 5px;
 }
 
-/* Botões dentro do td */
-td .task-edit-button,
-td .task-remove-button,
-td .task-button {
-  margin-right: 5px; /* Gap de 5px entre botões */
+.square{
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 50%;
 }
 
-/* Responsividade para dispositivos menores */
+.square.Baixa{
+  background-color: lightgray;
+}
 
-/* Para dispositivos móveis (máx. 640px) */
+.square.Média{
+  background-color: orange;
+}
+
+.square.Alta{
+  background-color: red;
+}
+
+.accordion-content {
+  padding: 15px;
+  background-color: #ffffff;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.accordion-content.show {
+  display: flex;
+}
+
+.task-remove-button {
+  padding: 10px;
+  background-color: tomato;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.task-remove-button:hover {
+  background-color: crimson;
+}
+
+/* Responsividade */
 @media (max-width: 640px) {
-  .app-container {
-    padding: 15px;
+  .app-container{
+    border-radius: 0;
+    margin-top: 0;
   }
 
   .task-form {
     flex-direction: column;
-    gap: 15px; /* Mais espaçamento entre os inputs no mobile */
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
   }
 
   .task-input,
   .task-select,
   .task-button {
-    width: 100%; /* Inputs e botões ocupam 100% da largura no mobile */
-  }
-
-  .task-tables {
-    overflow-x: auto; /* Habilita rolagem horizontal no mobile */
-  }
-
-  .task-table th,
-  .task-table td {
-    font-size: 0.8em; /* Reduz o tamanho do texto no mobile */
-  }
-
-  .task-button {
-    padding: 8px; /* Ajusta o tamanho do botão para telas menores */
+    flex-basis: 20px;
   }
 }
 
-/* Para dispositivos desktop pequenos (máx. 960px) */
-@media (max-width: 960px) {
-  .app-container {
-    max-width: 100%; /* Ajusta o container para ocupar toda a largura */
-    padding: 20px;
-  }
+/* Popup */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
-  .task-form {
-    gap: 10px; /* Mantém o espaçamento padrão para inputs no desktop */
-  }
+.popup {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  position: relative;
+}
 
-  .task-input,
-  .task-select,
-  .task-button {
-    padding: 8px; /* Inputs e botões levemente menores no desktop pequeno */
-  }
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-  .task-tables {
-    overflow-x: auto; /* Habilita rolagem horizontal no desktop pequeno */ 
-  }
+.popup-header h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
 
-  .task-table th,
-  .task-table td {
-    font-size: 0.9em; /* Texto levemente reduzido */
-  }
+.close-icon {
+  font-size: 1.2em;
+  cursor: pointer;
+  color: gray;
+  transition: color 0.3s;
+}
+
+.close-icon:hover {
+  color: black;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popup-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Estilo dos botões */
+.task-button,
+.task-remove-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  min-width: 100px;
+}
+
+.task-button {
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.task-button:hover {
+  background-color: #0056b3;
+}
+
+.task-remove-button {
+  background-color: tomato;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.task-remove-button:hover {
+  background-color: crimson;
+}
+
+/* Outros ajustes */
+.icon-button {
+  font-size: 1em;
+  margin-left: 10px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.icon-check{
+  color: rgb(8, 179, 8);
+  font-size: 1rem;;
+}
+
+.icon-button:hover {
+  color: #333;
+}
+
+.toggle-chevron-button{
+  font-size: .8em;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s;
 }
