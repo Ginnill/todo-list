@@ -211,8 +211,14 @@ body {
 
 .popup-content {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 10px;
+}
+
+.popup-content .task-input,
+.popup-content .task-select,
+.popup-content .task-button {
+  flex-basis: 100%;
 }
 
 .popup-actions {
